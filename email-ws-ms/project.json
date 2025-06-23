@@ -1,0 +1,6 @@
+{
+  "name": "email-ws-ms",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "vetsc-global/email-ws-ms/src",
+  "tags": []
+}

@@ -1,0 +1,6 @@
+{
+  "name": "vetid",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "/vetsc-global/vetid/src",
+  "tags": []
+}

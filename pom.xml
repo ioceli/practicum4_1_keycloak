@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- For more information about Spring boot multi-modules projects, go to: https://spring.io/guides/gs/multi-module/ -->
+	<groupId>com.vet</groupId>
+	<artifactId>vetsc-global</artifactId>
+	<version>O.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<sonar.projectKey>GrayBismuthMaster_vetsc_da2148b3-d32b-4720-9950-30dcba89db87</sonar.projectKey>
+		<sonar.projectName>vetsc</sonar.projectName>
+		<sonar.qualitygate.wait>true</sonar.qualitygate.wait>
+	</properties>
+	<modules>
+		<module>vetid</module>
+		<module>security</module>
+		<module>email-ws-ms</module>
+	</modules>
+</project>

@@ -1,0 +1,41 @@
+services:
+  keycloak:
+    build:
+      context: ./keycloak-resource-server # Adjust the context 
+      dockerfile: ./Dockerfile  # Adjust the Dockerfile path
+    container_name: keycloak
+    environment:
+      #Admin Credentials
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HOSTNAME_STRICT_HTTPS: 'false'
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KC_DB_URL: 'jdbc:postgresql://${LOCAL_IP}:${KEYCLOAK_POSTGRES_PORT}/${KEYCLOAK_DATABASE_NAME}'
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
+      KC_HEALTH_ENABLED: 'true'
+      KC_METRICS_ENABLED: 'true'
+      KC_HOSTNAME: ${LOCAL_IP}
+      PROXY_ADDRESS_FORWARDING: "true"
+      KC_SPI_THEME_DEFAULT: 'my-theme'
+    command: >
+      sh -c "export KEYCLOAK_PORT=8080 && /opt/jboss/keycloak/bin/standalone.sh -v start --optimized --http-enabled=true --http-port=${KEYCLOAK_PORT} --https-port=0"
+    ports:
+      - 8443:8443
+      - ${KEYCLOAK_PORT}:${KEYCLOAK_PORT}
+    networks:
+      - backend
+    volumes:
+      - keycloak-data:/opt/jboss/keycloak/standalone/data
+
+volumes:
+  keycloak-data:
+
+networks:
+  backend:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24

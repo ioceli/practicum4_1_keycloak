@@ -15,6 +15,7 @@ services:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
       KC_DB_URL: 'jdbc:postgresql://host.docker.internal:${KEYCLOAK_POSTGRES_PORT}/${KEYCLOAK_DATABASE_NAME}'
+      #KC_DB_URL: 'jdbc:postgresql://${LOCAL_IP}:${KEYCLOAK_POSTGRES_PORT}/${KEYCLOAK_DATABASE_NAME}'
       KC_DB_USERNAME: ${KEYCLOAK_DB_USER}
       KC_DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
       KC_HEALTH_ENABLED: 'true'
